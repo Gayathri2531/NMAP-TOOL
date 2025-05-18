@@ -18,8 +18,8 @@ G     G  A     A     Y     A     A     T     H     H  R    R      I
 
 print("\n****************************************************************")
 print("\n* Copyright of GayathriNalluri, 2025                           *")
-print("\n*Author By: Gayathri Nalluri                                   *")
-print("\n*GitHub: https://github.com/Gayathri2531                       *")
+print("\n* Author By: Gayathri Nalluri                                   *")
+print("\n* GitHub: https://github.com/Gayathri2531                       *")
 print("\n****************************************************************")
 
 # Add author and GitHub information
