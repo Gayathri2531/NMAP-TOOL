@@ -1,0 +1,80 @@
+### **Script Description:**
+
+This Python script is a **network scanner tool** that uses **Nmap** for discovering open ports, service versions, and other details of a target host. It provides various customizable scanning options and can be used for basic penetration testing or network auditing.
+
+#### **Detailed Breakdown of the Script:**
+
+1. **Imports:**
+
+   * `nmap`: The Nmap library is used to perform the network scans.
+   * `re`: Regular expressions are used to validate the input data (IP address and port range).
+
+2. **Input Validation:**
+
+   * The script checks if the entered target IP address is in the correct format using a regular expression (`ip_pattern`).
+   * Similarly, it validates the port range (e.g., 20-100) to ensure it’s within valid limits.
+
+3. **Scan Type Selection:**
+
+   * The script offers several scan types (TCP SYN, TCP Connect, and UDP scans). These are selected by the user based on their requirements.
+
+4. **Additional Scan Options:**
+
+   * The user can opt to gather additional information like:
+
+     * **Service Version Info**: Identifying the versions of services running on open ports.
+     * **Operating System Info**: Detecting the OS running on the target host.
+     * **Connection Type**: Showing the scan method used for the test.
+
+5. **Scanner Initialization:**
+
+   * The script initializes a `nmap.PortScanner()` object to perform the scan.
+
+6. **Scanning Process:**
+
+   * For each selected scan type, the script performs the scan, checking for open ports and gathering additional information (if enabled).
+   * The script prints out details about the target’s **open ports**, **service version information**, and **operating system** (if requested).
+
+7. **Specific Port Check:**
+
+   * The script allows the user to scan a specific port (TCP or UDP) to check its status individually.
+
+8. **Outputs:**
+
+   * The results of the scan are displayed in a user-friendly format, showing whether the host is online, the open ports, and if service version and OS information is enabled, those details as well.
+   * If a port is filtered, unreachable, or closed, the script indicates this.
+
+#### **Summary:**
+
+This Python script is a **customizable network scanning tool** that allows the user to:
+
+1. Perform **port scans** on a target IP.
+2. Select from **different types of scans** (TCP SYN, TCP Connect, and UDP).
+3. Collect and display **service version information** and **operating system details**.
+4. Check for a **specific port** status (TCP/UDP).
+5. Provide clear outputs to help understand the target host's status.
+
+---
+
+This tool can be useful for anyone conducting basic network security assessments, system admins looking for open ports or vulnerabilities, or even enthusiasts learning about network scanning and penetration testing.
+
+
+
+
+
+
+**** USAGE ****
+
+ Step1 : git clone <url>
+
+ Step2 : cd NMAP-TOOL
+
+ Step3 : chmod +x Networkmap.py
+
+ Step4 : python3 install nmap
+
+ Step5 : python3 Networkmap.py
+
+ Step6 : we can find found out what we want to see in the nmap like version,operating system, open ports
+
+ 
