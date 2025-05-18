@@ -10,9 +10,9 @@ port_range_pattern = re.compile(r"^(\d+)-(\d+)$")
 print("\n****************************************************************")
 
 print(r"""
- GGGGG    AAAAA   Y     Y   AAAAA   TTTTTTT  H     H  RRRRRR   IIIII  
-G     G  A     A   Y   Y   A     A     T     H     H  R     R    I    
-G        AAAAAAA    Y Y    AAAAAAA     T     HHHHHHH  RRRRRR     I    
+ GGGGG    AAAAA   Y     Y   AAAAA   TTTTTTT  H     H  RRRRRR    IIIII  
+G     G  A     A   Y   Y   A     A     T     H     H  R     R     I    
+G        AAAAAAA    Y Y    AAAAAAA     T     HHHHHHH  RRRRRR      I    
 G  GGG   A     A     Y     A     A     T     H     H  R   R       I    
 G     G  A     A     Y     A     A     T     H     H  R    R      I    
  GGGGG   A     A     Y     A     A     T     H     H  R     R   IIIII  
@@ -20,8 +20,8 @@ G     G  A     A     Y     A     A     T     H     H  R    R      I
 
 print("\n****************************************************************")
 print("\n* Copyright of GayathriNalluri, 2025                           *")
-print("\n* Author By: Gayathri Nalluri                                   *")
-print("\n* GitHub: https://github.com/Gayathri2531                       *")
+print("\n* Author By: Gayathri Nalluri                                  *")
+print("\n* GitHub: https://github.com/Gayathri2531                      *")
 print("\n****************************************************************")
 
 print("NMAP NETWORK SCANNER TOOL")
@@ -57,7 +57,7 @@ if input("Enable UDP scan? (yes/no): ").strip().lower() == "yes":
 enable_version = input("Show SERVICE VERSION info? (yes/no): ").strip().lower() == "yes"
 enable_os = input("Show OPERATING SYSTEM info? (yes/no): ").strip().lower() == "yes"
 enable_connection = input("Show CONNECTION TYPE used? (yes/no): ").strip().lower() == "yes"
-
+print("\n****************************************************************")
 # Initialize scanner
 scanner = nmap.PortScanner()
 
@@ -78,6 +78,7 @@ for name, args, proto in scan_types:
         continue
 
     print(f"Host {target} is ONLINE")
+    print("\n****************************************************************")
 
     if enable_connection:
         print("CONNECTION TYPE")
