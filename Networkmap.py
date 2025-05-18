@@ -7,6 +7,8 @@ import re
 ip_pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
 port_range_pattern = re.compile(r"^(\d+)-(\d+)$")
 
+print("\n****************************************************************")
+
 print(r"""
  GGGGG    AAAAA   Y     Y   AAAAA   TTTTTTT  H     H  RRRRRR   IIIII  
 G     G  A     A   Y   Y   A     A     T     H     H  R     R    I    
