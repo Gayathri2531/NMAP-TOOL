@@ -10,12 +10,12 @@ port_range_pattern = re.compile(r"^(\d+)-(\d+)$")
 print("\n****************************************************************")
 
 print(r"""
- GGGGG    AAAAA   Y     Y   AAAAA   TTTTTTT  H     H  RRRRRR   IIIII  
-G     G  A     A   Y   Y   A     A     T     H     H  R     R    I    
-G        AAAAAAA    Y Y    AAAAAAA     T     HHHHHHH  RRRRRR     I    
+ GGGGG    AAAAA   Y     Y   AAAAA   TTTTTTT  H     H  RRRRRR    IIIIII  
+G     G  A     A   Y   Y   A     A     T     H     H  R     R     I    
+G        AAAAAAA    Y Y    AAAAAAA     T     HHHHHHH  RRRRRR      I    
 G  GGG   A     A     Y     A     A     T     H     H  R   R       I    
 G     G  A     A     Y     A     A     T     H     H  R    R      I    
- GGGGG   A     A     Y     A     A     T     H     H  R     R   IIIII  
+ GGGGG   A     A     Y     A     A     T     H     H  R     R   IIIIII 
 """)
 
 print("\n****************************************************************")
@@ -23,13 +23,6 @@ print("\n* Copyright of GayathriNalluri, 2025                           *")
 print("\n* Author By: Gayathri Nalluri                                   *")
 print("\n* GitHub: https://github.com/Gayathri2531                       *")
 print("\n****************************************************************")
-
-# Add author and GitHub information
-
-
-# Regular expressions for input validation
-ip_pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
-port_range_pattern = re.compile(r"^(\d+)-(\d+)$")
 
 print("NMAP NETWORK SCANNER TOOL")
 
@@ -76,7 +69,7 @@ for name, args, proto in scan_types:
     if enable_os:
         scan_args += " -O"
 
-    print(f"Performing: {name}")
+    print(f"\nPerforming: {name}")
 
     scanner.scan(hosts=target, ports=f"{port_min}-{port_max}", arguments=scan_args)
 
@@ -87,10 +80,10 @@ for name, args, proto in scan_types:
     print(f"Host {target} is ONLINE")
 
     if enable_connection:
-        print("CONNECTION TYPE")
+        print("\nCONNECTION TYPE")
         print(f"- Scan Method Used: {name}")
 
-    print("OPEN PORTS")
+    print("\nOPEN PORTS")
     open_ports = False
     if proto in scanner[target]:
         for port, data in scanner[target][proto].items():
@@ -101,7 +94,7 @@ for name, args, proto in scan_types:
         print("No open ports found in given range.")
 
     if enable_version and proto in scanner[target]:
-        print("SERVICE VERSION INFO")
+        print("\nSERVICE VERSION INFO")
         for port, data in scanner[target][proto].items():
             if data['state'] == 'open':
                 name = data.get('name', '')
@@ -111,12 +104,12 @@ for name, args, proto in scan_types:
                 print(f"- Port {port}: {name} {product} {version} {extra}".strip())
 
     if enable_os and 'osmatch' in scanner[target]:
-        print("OPERATING SYSTEM INFO")
+        print("\nOPERATING SYSTEM INFO")
         for osmatch in scanner[target]['osmatch'][:3]:
             print(f"- {osmatch['name']} (Accuracy: {osmatch['accuracy']}%)")
 
 # Specific port check
-if input("Do you want to check a specific port? (yes/no): ").strip().lower() == "yes":
+if input("\nDo you want to check a specific port? (yes/no): ").strip().lower() == "yes":
     while True:
         try:
             specific_port = int(input("Enter the specific port number (0-65535): "))
@@ -133,9 +126,14 @@ if input("Do you want to check a specific port? (yes/no): ").strip().lower() == 
     scan_flag = "-sS" if proto_choice == 'tcp' else "-sU"
     scanner.scan(hosts=target, ports=str(specific_port), arguments=f"{scan_flag} -T4 -Pn")
 
-    print("SPECIFIC PORT CHECK")
+    print("\nSPECIFIC PORT CHECK")
     try:
         port_state = scanner[target][proto_choice][specific_port]['state']
         print(f"- Port {specific_port}/{proto_choice.upper()} is {port_state.upper()}")
     except:
         print("Could not determine status (port may be filtered or unreachable).")
+
+# Final message
+print("\n****************************************************************")
+print("         THANK YOU FOR USING THIS TOOL – HAPPY SCANNING!        ")
+print("****************************************************************")
