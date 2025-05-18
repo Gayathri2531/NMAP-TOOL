@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+!/usr/bin/env python3
 
 import nmap
 import re
@@ -20,8 +20,8 @@ G     G  A     A     Y     A     A     T     H     H  R    R      I
 
 print("\n****************************************************************")
 print("\n* Copyright of GayathriNalluri, 2025                           *")
-print("\n* Author By: Gayathri Nalluri                                   *")
-print("\n* GitHub: https://github.com/Gayathri2531                       *")
+print("\n* Author By: Gayathri Nalluri                                  *")
+print("\n* GitHub: https://github.com/Gayathri2531                      *")
 print("\n****************************************************************")
 
 print("NMAP NETWORK SCANNER TOOL")
@@ -57,6 +57,7 @@ if input("Enable UDP scan? (yes/no): ").strip().lower() == "yes":
 enable_version = input("Show SERVICE VERSION info? (yes/no): ").strip().lower() == "yes"
 enable_os = input("Show OPERATING SYSTEM info? (yes/no): ").strip().lower() == "yes"
 enable_connection = input("Show CONNECTION TYPE used? (yes/no): ").strip().lower() == "yes"
+print("\n****************************************************************")
 
 # Initialize scanner
 scanner = nmap.PortScanner()
@@ -70,19 +71,19 @@ for name, args, proto in scan_types:
         scan_args += " -O"
 
     print(f"\nPerforming: {name}")
-
-    scanner.scan(hosts=target, ports=f"{port_min}-{port_max}", arguments=scan_args)
+        scanner.scan(hosts=target, ports=f"{port_min}-{port_max}", arguments=scan_args)
 
     if target not in scanner.all_hosts():
         print(f"Host {target} is OFFLINE or not responding.")
         continue
 
     print(f"Host {target} is ONLINE")
+    print("\n****************************************************************")
 
     if enable_connection:
         print("\nCONNECTION TYPE")
         print(f"- Scan Method Used: {name}")
-
+        print("\n****************************************************************")
     print("\nOPEN PORTS")
     open_ports = False
     if proto in scanner[target]:
@@ -92,6 +93,8 @@ for name, args, proto in scan_types:
                 open_ports = True
     if not open_ports:
         print("No open ports found in given range.")
+        print("\n****************************************************************")
+
 
     if enable_version and proto in scanner[target]:
         print("\nSERVICE VERSION INFO")
@@ -102,12 +105,15 @@ for name, args, proto in scan_types:
                 version = data.get('version', '')
                 extra = data.get('extrainfo', '')
                 print(f"- Port {port}: {name} {product} {version} {extra}".strip())
+                print("\n****************************************************************")
 
     if enable_os and 'osmatch' in scanner[target]:
         print("\nOPERATING SYSTEM INFO")
+        print("\n****************************************************************")
+
         for osmatch in scanner[target]['osmatch'][:3]:
             print(f"- {osmatch['name']} (Accuracy: {osmatch['accuracy']}%)")
-
+            print("\n****************************************************************")
 # Specific port check
 if input("\nDo you want to check a specific port? (yes/no): ").strip().lower() == "yes":
     while True:
@@ -125,7 +131,7 @@ if input("\nDo you want to check a specific port? (yes/no): ").strip().lower() =
 
     scan_flag = "-sS" if proto_choice == 'tcp' else "-sU"
     scanner.scan(hosts=target, ports=str(specific_port), arguments=f"{scan_flag} -T4 -Pn")
-
+    print("\n****************************************************************")
     print("\nSPECIFIC PORT CHECK")
     try:
         port_state = scanner[target][proto_choice][specific_port]['state']
@@ -137,3 +143,5 @@ if input("\nDo you want to check a specific port? (yes/no): ").strip().lower() =
 print("\n****************************************************************")
 print("         THANK YOU FOR USING THIS TOOL – HAPPY SCANNING!        ")
 print("****************************************************************")
+
+
