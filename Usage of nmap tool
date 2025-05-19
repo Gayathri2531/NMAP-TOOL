@@ -71,7 +71,7 @@ This tool can be useful for anyone conducting basic network security assessments
 
  Step3 : chmod +x Networkmap.py
 
- Step4 : python3 install nmap
+ Step4 : pip install python-nmap
 
  Step5 : python3 Networkmap.py
 
